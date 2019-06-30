@@ -49,7 +49,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  callService: () => dispatch(callWebservice())
+  callService: () => dispatch(callWebservice('https://www.reddit.com/r/reactjs.json'))
 });
 
 //make this component available to the app

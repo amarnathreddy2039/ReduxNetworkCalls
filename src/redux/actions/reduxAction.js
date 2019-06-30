@@ -7,10 +7,10 @@ const headers={
   'Content-Type': 'application/json'
 }
 
-export const callWebservice = () => {
+export const callWebservice = (url) => {
   return dispatch => {
       dispatch(serviceActionPending())
-      axios.get('https://www.reddit.com/r/reactjs.json',{
+      axios.get(url,{
         headers:headers
       })
       .then(response => {
