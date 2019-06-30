@@ -1,6 +1,6 @@
-import * as Actions from './actions/types'
+import * as Actions from '../actions/types'
 
-const ServiceReducer = (state = { isLoading: false, error: undefined, data: {} }, action) => {
+const ReduxReducer = (state = { isLoading: false, error: undefined, data: {} }, action) => {
     switch (action.type) {
         case Actions.SERVICE_PENDING:
             return Object.assign({}, state, {
@@ -21,4 +21,4 @@ const ServiceReducer = (state = { isLoading: false, error: undefined, data: {} }
     }
 }
 
-export default ServiceReducer;
+export default ReduxReducer;

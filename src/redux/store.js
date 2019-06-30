@@ -1,15 +1,35 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import reduxReducerStore from './reducers/ReduxReducer';
+    
+import { combineReducers, applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
+import {createLogger} from 'redux-logger';
 
-export const rootReducer = combineReducers({
-  reduxReducerStore
+
+import reduxReducer from './reducers/ReduxReducer';
+
+
+const AppReducers = combineReducers({
+  reduxReducer,
 });
 
-const middleWare = [thunk];
-
-const configureStore = () => {
-  return createStore(rootReducer, applyMiddleware(middleWare));
+const rootReducer = (state, action) => {
+return AppReducers(state,action);
 }
 
-export default configureStore;
+const logger = createLogger();
+
+let store = createStore(rootReducer, compose(applyMiddleware(thunk)));
+
+export default store;
+
+
+// export const rootReducer = combineReducers({
+//   reduxReducerStore
+// });
+
+// const middleWare = [thunk];
+
+// const configureStore = () => {
+//   return createStore(rootReducer, applyMiddleware(middleWare));
+// }
+
+// export default configureStore;
